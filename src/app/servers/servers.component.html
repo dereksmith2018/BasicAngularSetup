@@ -1,0 +1,35 @@
+<!-- used for one way binding -->
+<!-- <label>Server Name</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">  -->
+
+<!-- used for two-way binding -->
+<label>Server Name</label>
+<input type="text" class="form-control" 
+[(ngModel)]="serverName">
+
+<!-- shows the typing of the user as they type -->
+<!-- <p>{{ serverName }}</p> -->
+
+
+<button class= "btn btn-success" 
+[disabled]="!newButtonServer" 
+(click)="onCreateServer()">New Server</button>
+
+<!-- show the codition of the button true/false -->
+<!-- <p [innerText]="newButtonServer" ></p> -->
+
+
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<!-- show the status of the server -->
+
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
+
+
+<!-- shows the text after the button is clicked -->
+<!-- <p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}</p> -->
+<!-- show on the button until click -->
+<!-- <ng-template #noServer><p>No server was created</p></ng-template> -->
+
+<!-- imported from the server file -->
+<!-- keeps adding new servers -->
+<app-server *ngFor="let server of servers"></app-server>
